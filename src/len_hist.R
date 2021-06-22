@@ -4,7 +4,10 @@ source('lib.R')
 ###
 
 NAME <- 'H3K36me3_K562.ENCFF903ZMQ.hg19'
+#NAME <- 'H3K36me3_K562.ENCFF903ZMQ.hg38'
 #NAME <- 'H3K36me3_K562.ENCFF901ACN.hg19'
+#NAME <- 'H3K36me3_K562.ENCFF901ACN.hg19'
+
 
 ###
 
@@ -38,4 +41,5 @@ bed_df %>%
   select(-len) %>%
   write.table(file=paste0(DATA_DIR, NAME, '.filtered.bed'),
               col.names = FALSE, row.names = FALSE, sep = '\t', quote = FALSE)
+
 
