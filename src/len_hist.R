@@ -14,12 +14,28 @@ bed_df$len <- bed_df$end - bed_df$start
 head(bed_df)
 
 
-# hist(bed_df$len)
+ggplot(bed_df) +
+  aes(x = len) +
+  geom_histogram() +
+  ggtitle(NAME, subtitle = sprintf('Number of peaks = %s', nrow(bed_df))) +
+  theme_bw()
+ggsave(paste0('len_hist.', NAME, '.init.hist.pdf'), path = OUT_DIR)
+
+
+bed_df <- bed_df %>%
+  arrange(-len) %>%
+  filter(len < 2000)
 
 ggplot(bed_df) +
   aes(x = len) +
   geom_histogram() +
   ggtitle(NAME, subtitle = sprintf('Number of peaks = %s', nrow(bed_df))) +
   theme_bw()
-ggsave(paste0('len_hist.', NAME, '.pdf'), path = OUT_DIR)
+ggsave(paste0('len_hist.', NAME, '.filtered.hist.pdf'), path = OUT_DIR)
+
+
+bed_df %>%
+  select(-len) %>%
+  write.table(file=paste0(DATA_DIR, NAME, '.filtered.bed'),
+              col.names = FALSE, row.names = FALSE, sep = '\t', quote = FALSE)
 
