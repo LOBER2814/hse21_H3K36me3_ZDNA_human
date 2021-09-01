@@ -7,5 +7,5 @@
 ## Location of DNA secondary structures
 ![alt text](https://raw.githubusercontent.com/LOBER2814/hse21_H3K36me3_ZDNA_human/main/images/chip_seeker.zhunt.plotAnnoPie.png)
 
-## Location of intersect_with_zhunt
+## Location of intersection between CgIP-seq peaks and DNA secondary structures
 ![alt text](https://raw.githubusercontent.com/LOBER2814/hse21_H3K36me3_ZDNA_human/main/images/chip_seeker.H3K36me3_K562.intersect_with_zhunt.plotAnnoPie.png)
